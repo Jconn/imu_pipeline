@@ -95,15 +95,15 @@ namespace imu_transformer
         const size_t filter_size = 180; 
         static std::deque<float> qY, qX, qZ;
 
-        vX.push_back(msg->linear_acceleration.x);
-        vY.push_back(msg->linear_acceleration.y);
-        vZ.push_back(msg->linear_acceleration.z);
+        qX.push_back(msg->linear_acceleration.x);
+        qY.push_back(msg->linear_acceleration.y);
+        qZ.push_back(msg->linear_acceleration.z);
         
-        if(vX.size() > filter_size)
+        if(qX.size() > filter_size)
         {
-            vX.pop_front();
-            vY.pop_front();
-            vZ.pop_front();
+            qX.pop_front();
+            qY.pop_front();
+            qZ.pop_front();
         }
         else
         {
