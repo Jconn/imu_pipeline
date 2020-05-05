@@ -46,7 +46,7 @@ target_link_libraries(${library_name} INTERFACE
 #    ${dependencies}
 #)
 
-ament_export_interfaces(${library_name} HAS_LIBRARY_TARGET)
+ament_export_targets(${library_name})
 
 ament_export_include_directories(include 
     ${EIGEN3_INCLUDE_DIRS}
