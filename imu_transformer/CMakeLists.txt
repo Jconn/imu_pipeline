@@ -39,19 +39,13 @@ include_directories(${library_name}
     ${EIGEN3_INCLUDE_DIRS}
 )
 
-target_link_libraries(${library_name} INTERFACE 
-    ${dependencies}
-)
-#ament_target_dependencies(${library_name}
+#target_link_libraries(${library_name} INTERFACE 
 #    ${dependencies}
 #)
+ament_target_dependencies(${library_name} INTERFACE
+    ${dependencies}
+)
 
-ament_export_targets(${library_name})
-
-ament_export_include_directories(include 
-    ${EIGEN3_INCLUDE_DIRS}
-    )
-ament_export_dependencies(${dependencies})
 
 ## Mark cpp header files for installation
 install(DIRECTORY include
@@ -62,5 +56,13 @@ install(
     EXPORT ${library_name}
     INCLUDES DESTINATION include
 )
+
+ament_export_targets(${library_name})
+
+ament_export_include_directories(include 
+    ${EIGEN3_INCLUDE_DIRS}
+    )
+ament_export_dependencies(${dependencies})
+
 
 ament_package()
